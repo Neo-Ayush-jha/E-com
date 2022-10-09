@@ -1,0 +1,7 @@
+ <select name="product_cat_id" , id="" class="form-select">
+                                            <!-- <% catagory.forEach(val=>{ %>
+                                                <option value="<%= val._id  %>">
+                                                    <%=val.cat_title %>
+                                                </option>
+                                                <% }); %> -->
+                                        </select>

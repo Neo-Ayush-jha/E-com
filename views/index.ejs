@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>E Buzzar</title>
+</head>
+
+<body style="background-color:rgb(219 211 211 / 90%);">
+    <%- include('nav.ejs') -%>
+        <%- include('top.ejs') -%>
+            <div class="container-fluid ">
+                <!-- <div class="container "> -->
+                <div class="row mb-5">
+                    <div class="col-lg-2 col-sm-8 mt-5">
+                        <%- include('list.ejs') -%>
+                    </div>
+                    <div class="col-lg-10 col-md-12 mt-3">
+                        <%- include('home.ejs') -%>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+            <%- include('footer.ejs') -%>
+            <!-- <a href="#" class="btn btn-primary border-2 small p-2 back-to-top" style="color: #fff;border-color: #17a2b8;border-radius: 45px;background-color: #00394f;display: inline;"><i class="bi bi-chevron-double-up"></i></a> -->
+</body>
+
+</html>
