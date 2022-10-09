@@ -1,11 +1,12 @@
-var mongoose = require('mongoose')
-const DBConnect = async(url)=>{
-    try{
-        await mongoose.connect(url);
-        console.log("connect db");
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/ecom', function(error){
+    if(error){
+        console.log("non-connected");
     }
-    catch(error){
-        console.log("not connect db");
+    else{
+        console.log("connected");
     }
-}
-module.exports = DBConnect;
+})
+
+module.exports = mongoose;

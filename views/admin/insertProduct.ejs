@@ -93,26 +93,27 @@
                                 consectetur adipisicing elit.</div>
                             <div class="mb-2 border border-dark p-1 border-1text-primary  rounded-pill text-center"
                                 style="background-color:rgb(242 162 206);">Lorem ipsum dolor sit amet </div>
-                            <form action="/admin/product/form" method="post">
-                                <div class="mb-3 border border-light  border-3 mx-auto rounded-circle "
-                                    style="height:110px;width:110px; ">
-                                    <input type="file" name="product_image" class="form-control rounded-circle mx-auto border border-3 py-5 px-1"
-                                        style="height:100px;width:100px;     background-color: rgb(65 56 63);">
-                                </div>
+                            <form action="/admin/product/form" method="post" enctype="multipart/form-data">
+                               
+                                <div class="form-group mb-2">
+                                    <input type="file" , name="product_image" class="form-control" placeholder="Pleace enter product image">
+                                  </div>
                                 <div class="mb-2">
                                     <input type="text" name="product_name" placeholder="Product Name"
                                         class="form-control border-bottom">
                                 </div>
                                 <div class="mb-2">
-                                    <input type="text" name="product_price" placeholder="price" class="form-control">
+                                    <input type="number" name="product_price" placeholder="price" class="form-control">
                                 </div>
                                 <div class="mb-2">
-                                    <input type="text" name="product_descount" placeholder="Descount price" class="form-control">
+                                    <input type="number" name="product_descount" placeholder="Descount price" class="form-control">
                                 </div>
                                 <div class="mb-2">
-                                    <input type="text" name="product_qyt" placeholder="product qyt" class="form-control">
+                                    <input type="number" name="product_qyt" placeholder="product qyt" class="form-control">
                                 </div>
-    
+                                <div class="mb-2">
+                                    <input type="text" name="product_discription" placeholder="product discription" class="form-control">
+                                </div>
                                  <div class="mb-3 col">
                                             <select name="product_cat_id" , id="" class="form-select">
                                                 <option>Select category</option>
@@ -135,12 +136,13 @@
                                             </select>
     
                                         </div>
-                                <div class="mb-2 rounded-pill text-center mx-auto"
+                                        <input type="submit" class="btn btn-primary text-light  p-0 w-100" value="Submit" placeholder="Submit">
+
+                                <!-- <div class="mb-2 rounded-pill text-center mx-auto p-0"
                                     style="background-image: linear-gradient(to right, rgb(119, 32, 97), rgb(149, 46, 108), rgb(177, 49, 156), rgb(205, 48, 134), rgb(230, 41, 173)) !important">
-                                    <i class="bi bi-check-circle text-light fs-5"></i>
-                                    <!-- <button class="border-0 my-1 fs-5 text-secondary " style="background-image: linear-gradient(to right, rgb(119, 32, 97), rgb(149, 46, 108), rgb(177, 49, 156), rgb(205, 48, 134), rgb(230, 41, 173)) !important">Submit</button> -->
-                                    <input type="submit" class="btn text-light " value="Submit" placeholder="Submit">
-                                </div>
+                                    <i class="bi bi-check-circle text-light p-0"></i>
+                                    <input type="submit" class="btn text-light  p-0 w-100" value="Submit" placeholder="Submit">
+                                </div> -->
                             </form>
                         </div>
                     </div>

@@ -1,22 +1,26 @@
 var express = require('express');
-const { showFormOfProduct, showCatForm, showBrandForm, catForm, formBrand, formProduct } = require('../controllers/adminController');
-const { shoForm, form } = require('../controllers/userController');
-const upload = require("../middlewares/upload");
 var router = express.Router();
-router.get("/",function(req,res){
-    res.render("index");
-});
+const upload = require("../middlewares/upload");
+const { shoForm, formApply, Product } = require('../controllers/userController');
+const { showFormOfProduct, showCatForm, showBrandForm, catForm, formBrand, formProduct, showProduct } = require('../controllers/adminController');
+
+router.get("/",Product);
 router.get("/admin",function(req,res){
     res.render("admin/home");
 });
+// router.get("/admin/register",InsertAdmin); 
+
 router.get("/signup",shoForm);
-router.post("/signup",upload.single('image'),form.insert);
+// router.post("/signup",formApply);
+router.post("/signup",upload.single('image'),formApply.insert);
+
 // -------------------------------------------------------------admin------------------------------------------------------
-router.get("/admin/insert-product/",showFormOfProduct)
-router.post("/admin/product/form",formProduct);
+router.get("/admin/product/form",showFormOfProduct);
+router.post("/admin/product/form",upload.single('product_image'),formProduct.insert);
 router.get("/admin/category/insert/",showCatForm);
 router.post("/admin/category/insert/",catForm);
 router.get("/admin/brand/form/",showBrandForm);
 router.post("/admin/brand/form",formBrand);
+router.get("/admin/product/show",showProduct);
 
 module.exports = router;

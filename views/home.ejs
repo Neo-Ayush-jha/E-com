@@ -1,62 +1,23 @@
-<div class="row">
-    <div class="col-lg-12 md-6 sm-10 mx-auto mt-3">
+<div class="row ">
+    <div class="col-lg-12 md-6 sm-6  mx-auto mt-3">
         <div class="row">
-            <div class="col-lg-3 md-6 sm-10 mx-auto mt-3 ">
-                <div class="card" style="width: 18rem; background-color:rgba(239, 231, 231, 0.9);">
-                    <img src="https://preview.redd.it/j6lbx88bqa541.jpg?auto=webp&s=a7f77e26c3ac0416f7eb3ae4da4d3b87b94ffbe6"
-                        class="card-img-top" height="250px" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the
-                            bulk of the card's content.</p>
-                            <a href="#" class="btn btn-warning "><i class="bi bi-cart-plus-fill"></i>Add to card</a>
-                        <a href="#" class="btn btn-danger ms-2 "><i class="bi bi-bag"></i>
-                            Buy Now</a>
-                    </div>
+            <% product.forEach(val=>{ %>
+                <div class="col-lg-3 md-6 sm-8 mx-auto mt-3 ">
+                    <a href="" class="nav-link">
+                        <div class="card" style="width: 18rem;height: 24rem; background-color:rgba(239, 231, 231, 0.9);">
+                            <img src="/<%= val.product_image %>" class="card-img-top" height="190px" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><%=val.product_name %></h5>
+                                <p class="card-text"><%=val.product_discription.substring(0, 100) %></p>
+                                <div class="mt-3">
+                                    <a href="#" class="btn btn-warning "><i class="bi bi-cart-plus-fill"></i>Add to card</a>
+                                    <a href="#" class="btn btn-danger ms-2 "><i class="bi bi-bag"></i>Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="col-lg-3 md-6 sm-10 mx-auto mt-3 ">
-                <div class="card" style="width: 18rem; background-color:rgba(239, 231, 231, 0.9);">
-                    <img src="https://preview.redd.it/j6lbx88bqa541.jpg?auto=webp&s=a7f77e26c3ac0416f7eb3ae4da4d3b87b94ffbe6"
-                        class="card-img-top" height="250px" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the
-                            bulk of the card's content.</p>
-                            <a href="#" class="btn btn-warning "><i class="bi bi-cart-plus-fill"></i>Add to card</a>
-                        <a href="#" class="btn btn-danger ms-2 "><i class="bi bi-bag"></i>
-                            Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 md-6 sm-10 mx-auto mt-3 ">
-                <div class="card" style="width: 18rem; background-color:rgba(239, 231, 231, 0.9);">
-                    <img src="https://preview.redd.it/j6lbx88bqa541.jpg?auto=webp&s=a7f77e26c3ac0416f7eb3ae4da4d3b87b94ffbe6"
-                        class="card-img-top" height="250px" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the
-                            bulk of the card's content.</p>
-                            <a href="#" class="btn btn-warning "><i class="bi bi-cart-plus-fill"></i>Add to card</a>
-                        <a href="#" class="btn btn-danger ms-2 "><i class="bi bi-bag"></i>
-                            Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 md-6 sm-10 mx-auto mt-3 ">
-                <div class="card" style="width: 18rem; background-color:rgba(239, 231, 231, 0.9);">
-                    <img src="https://preview.redd.it/j6lbx88bqa541.jpg?auto=webp&s=a7f77e26c3ac0416f7eb3ae4da4d3b87b94ffbe6"
-                        class="card-img-top" height="250px" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the
-                            bulk of the card's content.</p>
-                            <a href="#" class="btn btn-warning "><i class="bi bi-cart-plus-fill"></i>Add to card</a>
-                        <a href="#" class="btn btn-danger ms-2 "><i class="bi bi-bag"></i>
-                            Buy Now</a>
-                    </div>
-                </div>
-            </div>
+            <% }) ; %>
         </div>
     </div>
 </div>

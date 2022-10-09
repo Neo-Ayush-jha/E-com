@@ -13,14 +13,16 @@ const fileStorage =multer.diskStorage({
 const upload = multer({
     storage:fileStorage,
     fileDilter:(req,file,cb)=>{
-        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg"){
-            console.log('image is inserted');
-            cd(null, true);
-        }else{
-            cd(null, false);
-            console.log('image not inserted');
-            return cd(new Error('Only .png.jpg and .jpeg formate allowed'));
-        }
+        console.log(cb,file);
+        return false;
+        // if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg"){
+        //     cb(null, true);
+        //     console.log('image is inserted');
+        // }else{
+        //     cb(null, false);
+        //     console.log('image not inserted');
+        //     return cb(new Error('Only .png.jpg and .jpeg formate allowed'));
+        // }
     }
 });
 module.exports = upload;
