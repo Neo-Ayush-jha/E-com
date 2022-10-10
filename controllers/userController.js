@@ -33,8 +33,14 @@ async function Product(req,res){
     var data = await productModel.find().populate("product_cat_id").populate("product_brand_id");
     res.render("index",{'product':data});
 }
+async function singleProduct(req,res){
+    var data = await productModel.findById();
+    res.render('singleProduct',{'product':data}); 
+}
+
 module.exports={
     shoForm,
     formApply,
     Product,
+    singleProduct,
 }

@@ -1,12 +1,17 @@
 var express = require('express');
 var router = express.Router();
 const upload = require("../middlewares/upload");
-const { shoForm, formApply, Product } = require('../controllers/userController');
+const { shoForm, formApply, Product, singleProduct } = require('../controllers/userController');
 const { showFormOfProduct, showCatForm, showBrandForm, catForm, formBrand, formProduct, showProduct } = require('../controllers/adminController');
 
 router.get("/",Product);
 router.get("/admin",function(req,res){
     res.render("admin/home");
+});
+// router.get("/singleProduct",function(req,res){ res.render("singleProduct");});
+router.get('/singleProduct/:id',singleProduct);
+router.get("/cart",function(req,res){
+    res.render("cart");
 });
 // router.get("/admin/register",InsertAdmin); 
 
