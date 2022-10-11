@@ -1,0 +1,28 @@
+<%- include('nav.ejs') -%>
+<div class="container" >
+    <div class="row mb-3 my-5">
+        <div class="col-lg-4 md-6 sm-10 mx-auto mt-3 my-5">
+            <div class="card shadow shadow-6" style="background-color: rgba(239, 231, 231, 0.9);">
+                <div class="card-body shadow shadow-5">
+                    <h1 class="text-center">Admin login</h1>
+                    <hr>
+                    <div class="col-10 mx-auto my-3">
+                        <form action="/admin/login" method="post">
+                            <div class="mb-2">
+                                <input type="email" name="email" placeholder="xyz@gmail.com" class="form-control border-bottom">
+                            </div>
+                            <div class="mb-2">
+                                <input type="password" name="passord" placeholder=" Passord" class="form-control">
+                            </div>
+                            <div class="mb-2 rounded-pill text-center mx-auto" style="background-image: linear-gradient(to right, rgb(119, 32, 97), rgb(149, 46, 108), rgb(177, 49, 156), rgb(205, 48, 134), rgb(230, 41, 173)) !important">
+                                <i class="bi bi-check-circle text-light fs-5"></i>
+                                <input type="submit" class="btn text-light " value="Submit" placeholder="Submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../footer.ejs') -%>

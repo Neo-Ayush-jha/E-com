@@ -10,6 +10,13 @@ var expressLayouts = require('express-ejs-layouts');
 var urlEncoded = bodyParser.urlencoded({extended:false})
 app.use(urlEncoded);
 
+var session = require("express-session");
+app.use(session({
+    secret:"text my session",
+    resave:false,
+    saveUninitialized:false,
+}))
+
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 const staticPath = path.join(__dirname, './images');

@@ -1,4 +1,4 @@
-const AdminModel = require("../models/AdminModel");
+const AdminModel = require("../models/admin");
 
 function adminAuthorizedCheck(req,res,next){
     AdminModel.findById(req.session.admin_id).exec(function(error,admin){
@@ -7,7 +7,7 @@ function adminAuthorizedCheck(req,res,next){
         }
         else{
             if(admin){
-                res.redirect("/admin/dashboard")
+                res.redirect("/admin/home")
             }
             else{
                 return next();

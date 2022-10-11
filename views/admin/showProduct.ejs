@@ -19,7 +19,7 @@
                 <% product.forEach(val=>{ %>
                     <tr>
                         <td><%=val.id %></td>
-                        <td><%=val.product_name %></td>
+                        <td><%=val.product_name.substring(0, 20) %></td>
                         <td><%=val.product_brand_id.brand_name %></td>
                         <td><%=val.product_cat_id.cat_title %></td>
                         <td><%=val.product_price %></td>

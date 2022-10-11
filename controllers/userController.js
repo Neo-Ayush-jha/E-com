@@ -3,6 +3,7 @@ var UserModel = require('../models/user');
 var brandModel=require('../models/brand');
 var productModel=require('../models/product');
 var categoryModel=require('../models/category');
+var checkoutModel=require('../models/checkout');
 // const { connect } = require("../routers/router");
 
 function shoForm(req,res){
@@ -34,13 +35,38 @@ async function Product(req,res){
     res.render("index",{'product':data});
 }
 async function singleProduct(req,res){
-    var data = await productModel.findById();
-    res.render('singleProduct',{'product':data}); 
+    let id = req.params.id;
+    console.log(id);
+    const data = await productModel.findById(id).populate("product_cat_id").populate("product_brand_id");
+    var tata = await productModel.find().populate("product_cat_id").populate("product_brand_id");
+    var user = await UserModel.find();
+    res.render('singleProduct',{'product':data,'tt':tata,'user':user}); 
+    console.log(tata);
 }
 
+function checkOut(req,res){
+    res.render("checkOut");
+}
+async function checkoutForm(req,res){
+    var check = new checkoutModel({
+        user_name:req.body.user_name,
+        user_last_name:req.body.user_last_name,
+        user_contact:req.body.user_contact,
+        user_email:req.body.user_email,
+        user_address1:req.body.user_address1,
+        user_address2:req.body.user_address2,
+        user_city:req.body.user_city,
+        country:req.body.country,
+        user_state:req.body.user_state,
+        user_pin:req.body.user_pin,
+    })
+    await check.save();res.redirect('/checkout');
+}
 module.exports={
     shoForm,
     formApply,
     Product,
+    checkOut,
+    checkoutForm,
     singleProduct,
 }
