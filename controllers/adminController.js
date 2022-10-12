@@ -9,13 +9,13 @@ var categoryModel = require('../models/category');
 function adminHome(req, res) {
     res.render('admin/home');
 }
-// function InsertAdmin(req,res){
-//             var admin= new AdminModel({
-//             email:"gmail",
-//             password:'123'
-//         });
-//         admin.save();
-//     }
+function InsertAdmin(req, res) {
+    var admin = new AdminModel({
+        email: "gmail",
+        password: '123'
+    });
+    admin.save();
+}
 
 function adminLogin(req, res) {
     res.render("admin/login");
@@ -48,7 +48,7 @@ function catForm(req, res) {
     });
     cat.save();
     res.redirect('/admin/product/form');
-    console.log(cat);
+    // console.log(cat);
 }
 function showBrandForm(req, res) {
     res.render("admin/insertProduct");
@@ -59,7 +59,7 @@ function formBrand(req, res) {
     });
     brand.save();
     res.redirect("/admin/product/form");
-    console.log(brand);
+    // console.log(brand);
 }
 async function showFormOfProduct(req, res) {
     var data = await brandModel.find({});
@@ -80,7 +80,7 @@ class formProduct {
                 'product_cat_id': req.body.product_cat_id,
             })
             await product.save();
-            console.log(product);
+            // console.log(product);
             console.log('data inserted successfully');
         } catch (error) {
             console.log(error);
@@ -103,5 +103,5 @@ module.exports = {
     adminHome,
     adminLogin,
     checkAdmin,
-    // InsertAdmin,
+    InsertAdmin,
 }

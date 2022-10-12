@@ -1,19 +1,19 @@
 var express = require('express');
 var router = express.Router();
 const upload = require("../middlewares/upload");
-const { shoForm, formApply, Product, singleProduct, checkOut, checkoutForm } = require('../controllers/userController');
-const { showFormOfProduct, showCatForm, showBrandForm, catForm, formBrand, formProduct, showProduct,adminHome, adminLogin, checkAdmin } = require('../controllers/adminController');
+const { shoForm, formApply, Product, singleProduct, checkOut, checkoutForm, userLogin, checkUser, cart } = require('../controllers/userController');
+const { showFormOfProduct, showCatForm, showBrandForm, catForm, formBrand, formProduct, showProduct,adminHome, adminLogin, checkAdmin ,InsertAdmin} = require('../controllers/adminController');
 const {adminAuthorizedCheck,adminAuthorized} = require('../middlewares/adminMiddleware');
+const {userAuthorizedCheck,userAuthorized} = require('../middlewares/userMiddleware');
 router.get("/",Product);
 // router.get("/checkout",function(req,res){ res.render("checkOut");});
-router.get('/checkout',checkOut);
+router.get('/checkout/:id',checkOut);
 router.post('/checkout',checkoutForm);
 router.get('/singleProduct/:id',singleProduct);
-router.get("/cart",function(req,res){
-    res.render("cart");
-});
 // router.get("/admin/register",InsertAdmin); 
-
+router.get('/user/login',userAuthorizedCheck,userLogin);
+router.post('/user/login',checkUser);
+router.get("/cart/:id",userAuthorized,cart);
 router.get("/signup",shoForm);
 // router.post("/signup",formApply);
 router.post("/signup",upload.single('image'),formApply.insert);

@@ -6,6 +6,22 @@ var categoryModel=require('../models/category');
 var checkoutModel=require('../models/checkout');
 // const { connect } = require("../routers/router");
 
+function userLogin(req,res){
+    res.render("login");
+}
+async function checkUser(req,res){
+    var {user_email,user_password}=req.body;
+    console.log(user_email);
+    console.log(user_password);
+    var account = await UserModel.findOne({user_email:user_email});
+    console.log(account);
+    if(account.user_email===user_email && account.user_password===user_password){
+        req.session.user_id = account._id;
+        res.render('/cart');
+    }else{
+        res.send("some thing is wrong");
+    }
+}
 function shoForm(req,res){
     res.render("apply");
 }
@@ -21,10 +37,10 @@ class  formApply{
                 user_gender:req.body.user_gender,
             })
             await user.save();
-            console.log(req.file.filename);
+            // console.log(req.file.filename);
             console.log('data inserted successfully');
         }catch(error){
-            console.log(error);
+            // console.log(error);
         }
         res.redirect("/signup");
     }
@@ -36,12 +52,12 @@ async function Product(req,res){
 }
 async function singleProduct(req,res){
     let id = req.params.id;
-    console.log(id);
+    // console.log(id);
     const data = await productModel.findById(id).populate("product_cat_id").populate("product_brand_id");
     var tata = await productModel.find().populate("product_cat_id").populate("product_brand_id");
     var user = await UserModel.find();
     res.render('singleProduct',{'product':data,'tt':tata,'user':user}); 
-    console.log(tata);
+    // console.log(tata);
 }
 
 function checkOut(req,res){
@@ -62,11 +78,17 @@ async function checkoutForm(req,res){
     })
     await check.save();res.redirect('/checkout');
 }
+function cart(req,res){
+    res.render('cart');
+}
 module.exports={
-    shoForm,
-    formApply,
+    cart,
     Product,
+    shoForm,
     checkOut,
+    formApply,
+    checkUser,
+    userLogin,
     checkoutForm,
     singleProduct,
 }
