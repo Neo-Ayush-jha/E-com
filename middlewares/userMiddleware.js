@@ -6,7 +6,7 @@ function userAuthorizedCheck(req,res,next){
         }
         else{
             if(user){
-                res.redirect("/cart")
+                res.redirect("/checkout/:id");
             }
             else{
                 return next();

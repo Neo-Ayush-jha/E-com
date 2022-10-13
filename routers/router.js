@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
 const upload = require("../middlewares/upload");
+const {userAuthorizedCheck,userAuthorized} = require('../middlewares/userMiddleware');
+const {adminAuthorizedCheck,adminAuthorized} = require('../middlewares/adminMiddleware');
 const { shoForm, formApply, Product, singleProduct, checkOut, checkoutForm, userLogin, checkUser, cart } = require('../controllers/userController');
 const { showFormOfProduct, showCatForm, showBrandForm, catForm, formBrand, formProduct, showProduct,adminHome, adminLogin, checkAdmin ,InsertAdmin} = require('../controllers/adminController');
-const {adminAuthorizedCheck,adminAuthorized} = require('../middlewares/adminMiddleware');
-const {userAuthorizedCheck,userAuthorized} = require('../middlewares/userMiddleware');
+
 router.get("/",Product);
 // router.get("/checkout",function(req,res){ res.render("checkOut");});
-router.get('/checkout/:id',checkOut);
+router.get('/checkout/:id',userAuthorized,checkOut);
 router.post('/checkout',checkoutForm);
 router.get('/singleProduct/:id',singleProduct);
 // router.get("/admin/register",InsertAdmin); 

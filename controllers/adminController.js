@@ -6,8 +6,10 @@ var AdminModel = require('../models/admin')
 var productModel = require('../models/product');
 var categoryModel = require('../models/category');
 
-function adminHome(req, res) {
-    res.render('admin/home');
+async function adminHome(req, res) {
+    const productCount = await productModel.find().countDocuments();
+    const userCount = await user.find().countDocuments();
+    res.render('admin/home',{'productCount':productCount,'userCount':userCount});
 }
 function InsertAdmin(req, res) {
     var admin = new AdminModel({
@@ -33,6 +35,7 @@ async function checkAdmin(req, res) {
         else {
             res.send("wrong email pleace try agan");
         }
+        console.log(account.password);
     }
     else {
         res.send("you are not valid")
@@ -93,15 +96,15 @@ async function showProduct(req, res) {
     res.render("admin/showProduct", { 'product': data });
 }
 module.exports = {
-    showFormOfProduct,
-    showBrandForm,
-    showCatForm,
     catForm,
-    formBrand,
-    formProduct,
-    showProduct,
     adminHome,
-    adminLogin,
+    formBrand,
     checkAdmin,
+    adminLogin,
     InsertAdmin,
+    showCatForm,
+    showProduct,
+    formProduct,
+    showBrandForm,
+    showFormOfProduct,
 }

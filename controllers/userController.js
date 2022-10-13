@@ -11,13 +11,13 @@ function userLogin(req,res){
 }
 async function checkUser(req,res){
     var {user_email,user_password}=req.body;
-    console.log(user_email);
-    console.log(user_password);
+    // console.log(user_email);
+    // console.log(user_password);
     var account = await UserModel.findOne({user_email:user_email});
-    console.log(account);
+    // console.log(account);
     if(account.user_email===user_email && account.user_password===user_password){
         req.session.user_id = account._id;
-        res.render('/cart');
+        res.render('/checkout/:id');
     }else{
         res.send("some thing is wrong");
     }
