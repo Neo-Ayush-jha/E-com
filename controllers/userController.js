@@ -6,6 +6,11 @@ var categoryModel=require('../models/category');
 var checkoutModel=require('../models/checkout');
 // const { connect } = require("../routers/router");
 
+
+async function getUser(req){
+    std = await UserModel.findById(req.session.user_id);
+    return std;
+}
 function userLogin(req,res){
     res.render("login");
 }
@@ -21,6 +26,10 @@ async function checkUser(req,res){
     }else{
         res.send("some thing is wrong");
     }
+}
+function Logout(req,res){
+    req.session.destroy();
+     res.redirect("/");
 }
 function shoForm(req,res){
     res.render("apply");
@@ -76,13 +85,11 @@ async function checkoutForm(req,res){
         user_state:req.body.user_state,
         user_pin:req.body.user_pin,
     })
-    await check.save();res.redirect('/checkout');
+    await check.save();res.redirect('/checkout/:id');
 }
-function cart(req,res){
-    res.render('cart');
-}
+
 module.exports={
-    cart,
+    Logout,
     Product,
     shoForm,
     checkOut,

@@ -5,6 +5,12 @@ var brandModel = require('../models/brand');
 var AdminModel = require('../models/admin')
 var productModel = require('../models/product');
 var categoryModel = require('../models/category');
+var CartModel = require('../models/cart');
+
+async function getUser(req){
+    std = await user.findById(req.session.user_id);
+    return std;
+}
 
 async function adminHome(req, res) {
     const productCount = await productModel.find().countDocuments();
@@ -95,7 +101,75 @@ async function showProduct(req, res) {
     var data = await productModel.find().populate("product_cat_id").populate("product_brand_id");
     res.render("admin/showProduct", { 'product': data });
 }
+
+async function cart(req,res){
+    // var all = await productModel.find({'status':1 }).populate("product_cat_id").populate("product_brand_id");
+    // var data = await CartModel.find({}).populate("product_id").populate("user_id");
+    // res.render('cart',{'cart':data});
+    // console.log(data);
+    var data = await CartModel.aggregate(
+        [
+            {
+                $lookup:{
+                    from:"products",
+                    locakFiel:"product_id",
+                    foreignField:"_id",
+                    as:'products',
+                }
+            },
+            {
+                $lookup:{
+                    from:"users",
+                    localField:"user_id",
+                    foreignField:"_id",
+                    as:'users',
+                }
+            },
+            {
+                $unwind:"$products",
+            },
+            {
+                $project : {
+                    product_name:"$product.product_name",
+                    product_price:"$product.product_price",
+                }
+            },
+        ],
+    );
+        res.render('cart',{'cart':data});
+
+}
+async function editCart(req,res){
+    var id = req.params.id;
+    var data =await productModel.findOneAndUpdate({"_id":id},{ status:req.body.status},{new:true}).populate("product_cat_id").populate("product_brand_id");
+    return res.redirect("/cart/add");
+    console.log(data);
+}
+async function addCart(req,res){
+    var id = req.params.id;
+    var std = await getUser(req);
+    var productCart = await CartModel.exists({'user_id':std._id,"product_id":id}).then((exist)=>{
+        if(exist){
+            res.redirect('/cart/add');
+        }
+        else{
+            var productAdd = CartModel({
+                user_id:std._id,
+                product_id:id,
+                status:1,
+            });
+            productAdd.save();
+            res.redirect('/cart/add')
+        }
+        console.log(id)
+    })
+    // res.redirect('/cart/add');
+    // console.log(all);
+}
 module.exports = {
+    cart,
+    addCart,
+    editCart,
     catForm,
     adminHome,
     formBrand,

@@ -2,39 +2,39 @@
 <div class="container-fluid pt-5">
     <div class="row px-xl-5">
         <div class="col-lg-8">
-            <div class="mb-4">
-                <h4 class="font-weight-semi-bold mb-4">Billing Address</h4>
+            <div class="mb-4 border border-2 shadow shadow-5 p-3">
+                <h4 class="font-weight-semi-bold mb-4  text-decoration-underline ">Billing Address</h4>
                 <form action="/checkout" method="post">
                     <div class="row">
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 mb-3 form-group">
                             <label>First Name</label>
-                            <input class="form-control" name="user_name" type="text" placeholder="John">
+                            <input class="form-control" name="user_name" type="text" placeholder="Ayush">
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 mb-3 form-group">
                             <label>Last Name</label>
-                            <input class="form-control" name="user_last_name" type="text" placeholder="Doe">
+                            <input class="form-control" name="user_last_name" type="text" placeholder="Jha">
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 mb-3 form-group">
                             <label>E-mail</label>
                             <input class="form-control" type="text" name="user_email" placeholder="example@email.com">
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 mb-3 form-group">
                             <label>Mobile No</label>
                             <input class="form-control" name="user_contact" type="text" placeholder="+123 456 789">
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 mb-3 form-group">
                             <label>Address Line 1</label>
                             <input class="form-control" type="text" name="user_address1" placeholder="123 Street">
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 mb-3 form-group">
                             <label>Address Line 2</label>
                             <input class="form-control" type="text" name="user_address2" placeholder="123 Street">
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 mb-3 form-group">
                             <label>Country</label>
-                            <select class="custom-select" name="country">
+                            <select class="custom-select form-control" name="country">
                                 <option selected>India</option>
-                                <option selected>United States</option>
+                                <option>United States</option>
                                 <option>Afghanistan</option>
                                 <option>Albania</option>
                                 <option>Napal</option>
@@ -42,15 +42,43 @@
                                 <option>Algeria</option>
                             </select>
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 mb-3 form-group">
                             <label>City</label>
-                            <input class="form-control" name="user_city" type="text" placeholder="New York">
+                            <input class="form-control" name="user_city" type="text" placeholder="Purnea">
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 mb-3 form-group">
                             <label>State</label>
-                            <input class="form-control" name="user_state" type="text" placeholder="New York">
-                        </div>
-                        <div class="col-md-6 form-group">
+                            <select class="custom-select form-control" name="user_state">
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chhattisgarh">Chhattisgarh </option>
+                                <option value="Goa">Goa </option>
+                                <option value="Gujarat">Gujarat </option>
+                                <option value="Haryana"> Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh </option>
+                                <option value="Jharkhand">Jharkhand </option>
+                                <option value="Karnataka">Karnataka </option>
+                                <option value="Kerala"> Kerala</option>
+                                <option value="Madhya pradesh">Madhya pradesh</option>
+                                <option value="Maharashta">Maharashta </option>
+                                <option value="Manipur">Manipur </option>
+                                <option value="Mizoram">Mizoram </option>
+                                <option value="Nagaland">Nagaland </option>
+                                <option value="Odisha">Odisha </option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan </option>
+                                <option value="Sikkim"> Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu </option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttara Pradesh">Uttara Pradesh </option>
+                                <option value="Uttrakhand">Uttrakhand</option>
+                                <option value="West Bengal">West Bengal </option>
+                            </select>
+                         </div>
+                        <div class="col-md-6 mb-3 form-group">
                             <label>pin Code</label>
                             <input class="form-control" name="user_pin" type="text" placeholder="123">
                         </div>

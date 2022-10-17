@@ -7,6 +7,7 @@ var productModle = mongoose.Schema({
     product_image:{type:String,require:true},
     product_brand_id:{type:mongoose.Schema.Types.ObjectId,ref:"brand"},
     product_cat_id:{type:mongoose.Schema.Types.ObjectId,ref:"category"},
+    status : {type:String,default:0},
 });
 var product=mongoose.model("product",productModle);
 module.exports=product;
