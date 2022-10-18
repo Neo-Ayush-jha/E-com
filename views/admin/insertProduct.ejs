@@ -2,155 +2,163 @@
 <div class="container-fluid">
     <div class="row mb-3">
         <div class="col-lg-2 md-2 sm-12 mx-auto mt-3"><%- include("list") -%></div>
-       <div class="col-lg-10 md-10 sm-10 mx-auto mt-3">
-        <div class="row">
-            <div class="col-lg-3 md-4 sm-4 mx-auto mt-3">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Add Product category's
-                </button>
+        <div class="col-lg-10 md-10 sm-10 mx-auto mt-3">
+            <div class="row">
+                <div class="col-lg-3 md-4 sm-4 mx-auto mt-3">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Add Product category's
+                    </button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Add product's category</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <form action="/admin/category/insert/" method="post">
-                                            <div class="mb-3">
-                                                <label for="">Category Title</label>
-                                                <input type="text" name="cat_title" class="form-control">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="">Category Discription</label>
-                                                <input type="text" name="cat_description"
-                                                    class="form-control">
-                                            </div>
-                                            <input type="submit" class="btn btn-success">
-                                        </form>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Add product's category</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <form action="/admin/category/insert/" method="post">
+                                                <div class="mb-3">
+                                                    <label for="">Category Title</label>
+                                                    <input type="text" name="cat_title" class="form-control">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="">Category Discription</label>
+                                                    <input type="text" name="cat_description" class="form-control">
+                                                </div>
+                                                <input type="submit" class="btn btn-success">
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <div class="col-lg-3 md-4 sm-4 mx-auto mt-3">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-2">
-                Add Product Brand's
-            </button>
+                <div class="col-lg-3 md-4 sm-4 mx-auto mt-3">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal-2">
+                        Add Product Brand's
+                    </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel-2"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel-2">Add product's brand</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel-2"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel-2">Add product's brand</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <form action="/admin/brand/form" method="post">
+                                                <div class="mb-3">
+                                                    <label for="">Brand Title</label>
+                                                    <input type="text" name="brand_name" class="form-control">
+                                                </div>
+                                                <input type="submit" class="btn btn-success">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <div class="card">
-                                <div class="card-body">
-                                    <form action="/admin/brand/form" method="post">
-                                        <div class="mb-3">
-                                            <label for="">Brand Title</label>
-                                            <input type="text" name="brand_name"
+                    </div>
+                </div>
+                <div class="col-lg-12 md-6 sm-10 mx-auto mt-3">
+                    <div class="col-lg-6 md-6 sm-10 mx-auto mt-3">
+                        <div class="card shadow shadow-6" style="background-color: rgba(239, 231, 231, 0.9);">
+                            <div class="card-body shadow shadow-5">
+                                <div class="col-10 mx-auto ">
+                                    <div class=" mb-1 border border-1 p-1 border-dark text-dark  rounded-pill text-center "
+                                        style="background-color:rgb(242 162 206);">Lorem ipsum dolor sit amet </div>
+                                    <div class="mb-1 border border-1 border-dark text-dark rounded-pill text-center p-2"
+                                        style="background-color:rgb(218 202 242);">Lorem ipsum dolor sit amet
+                                        consectetur adipisicing elit.</div>
+                                    <div class="mb-2 border border-dark p-1 border-1text-primary  rounded-pill text-center"
+                                        style="background-color:rgb(242 162 206);">Lorem ipsum dolor sit amet </div>
+                                    <form action="/admin/product/form" method="post" enctype="multipart/form-data">
+
+                                        <div class="form-group mb-2">
+                                            <input type="file" , name="product_image" class="form-control"
+                                                placeholder="Pleace enter product image">
+                                        </div>
+                                        <div class="mb-2">
+                                            <input type="text" name="product_name" placeholder="Product Name"
+                                                class="form-control border-bottom">
+                                        </div>
+                                        <div class="mb-2">
+                                            <input type="number" name="product_price" placeholder="price"
                                                 class="form-control">
                                         </div>
-                                        <input type="submit" class="btn btn-success">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-12 md-6 sm-10 mx-auto mt-3">
-            <div class="col-lg-6 md-6 sm-10 mx-auto mt-3">
-                <div class="card shadow shadow-6" style="background-color: rgba(239, 231, 231, 0.9);">
-                    <div class="card-body shadow shadow-5">
-                        <div class="col-10 mx-auto ">
-                            <div class=" mb-1 border border-1 p-1 border-dark text-dark  rounded-pill text-center "
-                                style="background-color:rgb(242 162 206);">Lorem ipsum dolor sit amet </div>
-                            <div class="mb-1 border border-1 border-dark text-dark rounded-pill text-center p-2"
-                                style="background-color:rgb(218 202 242);">Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit.</div>
-                            <div class="mb-2 border border-dark p-1 border-1text-primary  rounded-pill text-center"
-                                style="background-color:rgb(242 162 206);">Lorem ipsum dolor sit amet </div>
-                            <form action="/admin/product/form" method="post" enctype="multipart/form-data">
-                               
-                                <div class="form-group mb-2">
-                                    <input type="file" , name="product_image" class="form-control" placeholder="Pleace enter product image">
-                                  </div>
-                                <div class="mb-2">
-                                    <input type="text" name="product_name" placeholder="Product Name"
-                                        class="form-control border-bottom">
-                                </div>
-                                <div class="mb-2">
-                                    <input type="number" name="product_price" placeholder="price" class="form-control">
-                                </div>
-                                <div class="mb-2">
-                                    <input type="number" name="product_descount" placeholder="Descount price" class="form-control">
-                                </div>
-                                <div class="mb-2">
-                                    <input type="number" name="product_qyt" placeholder="product qyt" class="form-control">
-                                </div>
-                                <div class="mb-2">
-                                    <input type="text" name="product_discription" placeholder="product discription" class="form-control">
-                                </div>
-                                 <div class="mb-3 col">
+                                        <div class="mb-2">
+                                            <input type="number" name="product_descount" placeholder="Descount price"
+                                                class="form-control">
+                                        </div>
+                                        <div class="mb-2">
+                                            <input type="number" name="product_qyt" placeholder="product qyt"
+                                                class="form-control">
+                                        </div>
+                                        <div class="mb-2">
+                                            <input type="text" name="product_discription"
+                                                placeholder="product discription" class="form-control">
+                                        </div>
+                                        <div class="mb-3 col">
                                             <select name="product_cat_id" , id="" class="form-select">
                                                 <option>Select category</option>
                                                 <% catagory.forEach(val=>{ %>
-                                                    <option value="<%= val._id  %>">
-                                                        <%=val.cat_title %>
-                                                    </option>
-                                                    <% }); %>
+                                                <option value="<%= val._id  %>">
+                                                    <%=val.cat_title %>
+                                                </option>
+                                                <% }); %>
                                             </select>
-    
+
                                         </div>
                                         <div class="mb-3 col">
                                             <select name="product_brand_id" , id="" class="form-select">
                                                 <% brand.forEach(val=>{ %>
-                                                    <option>Select brand</option>
-                                                    <option value="<%= val._id  %>">
-                                                        <%=val.brand_name %>
-                                                    </option>
-                                                    <% }); %>
+                                                <option>Select brand</option>
+                                                <option value="<%= val._id  %>">
+                                                    <%=val.brand_name %>
+                                                </option>
+                                                <% }); %>
                                             </select>
-    
-                                        </div>
-                                        <input type="submit" class="btn btn-primary text-light  p-0 w-100" value="Submit" placeholder="Submit">
 
-                                <!-- <div class="mb-2 rounded-pill text-center mx-auto p-0"
+                                        </div>
+                                        <input type="submit" class="btn btn-primary text-light  p-0 w-100"
+                                            value="Submit" placeholder="Submit">
+
+                                        <!-- <div class="mb-2 rounded-pill text-center mx-auto p-0"
                                     style="background-image: linear-gradient(to right, rgb(119, 32, 97), rgb(149, 46, 108), rgb(177, 49, 156), rgb(205, 48, 134), rgb(230, 41, 173)) !important">
                                     <i class="bi bi-check-circle text-light p-0"></i>
                                     <input type="submit" class="btn text-light  p-0 w-100" value="Submit" placeholder="Submit">
                                 </div> -->
-                            </form>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-       </div>
-</div>
 </div>
 <%- include('../footer.ejs') -%>

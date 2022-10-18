@@ -2,34 +2,34 @@
 <div class="container-fluid">
     <div class="row mb-3">
         <div class="col-lg-2 md-2 sm-12 mx-auto mt-3"><%- include("list") -%></div>
-       <div class="col-lg-10 md-10 sm-10 mx-auto mt-3">
-        <div class="row">
-        <div class="col-8 mx-auto">
-            <table class="table  border border-3 border-dark">
-                <tr>
-                    <th>Id</th>
-                    <th>Product name</th>
-                    <th>Product brand</th>
-                    <th>Product category</th>
-                    <th>Product price</th>
-                    <th>Product descount</th>
-                    <th>Product qyt</th>
-                    <th>Product image</th>
-                </tr>
-                <% product.forEach(val=>{ %>
-                    <tr>
-                        <td><%=val.id %></td>
-                        <td><%=val.product_name.substring(0, 20) %></td>
-                        <td><%=val.product_brand_id.brand_name %></td>
-                        <td><%=val.product_cat_id.cat_title %></td>
-                        <td><%=val.product_price %></td>
-                        <td><%=val.product_descount %></td>
-                        <td><%=val.product_qyt %></td>
-                        <td><img src="/<%= val.product_image %>" height="50" alt=""></td>
-                    </tr>
-                    <% }); %> 
-            </table>
+        <div class="col-lg-10 md-10 sm-10 mx-auto mt-3">
+            <div class="row">
+                <div class="col-8 mx-auto">
+                    <table class="table  border border-3 border-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Product name</th>
+                            <th>Product brand</th>
+                            <th>Product category</th>
+                            <th>Product price</th>
+                            <th>Product descount</th>
+                            <th>Product qyt</th>
+                            <th>Product image</th>
+                        </tr>
+                        <% product.forEach(val=>{ %>
+                        <tr>
+                            <td><%=val.id %></td>
+                            <td><%=val.product_name.substring(0, 20) %></td>
+                            <td><%=val.product_brand_id.brand_name %></td>
+                            <td><%=val.product_cat_id.cat_title %></td>
+                            <td><%=val.product_price %></td>
+                            <td><%=val.product_descount %></td>
+                            <td><%=val.product_qyt %></td>
+                            <td><img src="/<%= val.product_image %>" height="50" alt=""></td>
+                        </tr>
+                        <% }); %>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<%- include("../footer.ejs") -%>
+        <%- include("../footer.ejs") -%>

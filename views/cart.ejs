@@ -6,6 +6,7 @@
             <table class="table table-bordered text-center mb-0">
                 <thead class="bg-secondary text-dark">
                     <tr>
+                        <th>Sr.No.</th>
                         <th>Products</th>
                         <th>Price</th>
                         <th>Quantity</th>
@@ -14,11 +15,17 @@
                     </tr>
                 </thead>
                 <tbody class="align-middle">
-                    <% cart.forEach(val=>{ %>
+                    <% var  total= 0; %>
+                    <% cart.forEach((val, index) => {  %>
                     <tr>
-                        <td class="align-middle"><img src="/<%= val.product_image %>" alt="" style="width: 50px;">
-                            <%= val.user_id.user_name %>t</td>
-                        <td class="align-middle">$<%= val.product_id.product_price %></td>
+                        <td>
+                            <%= index+1 %>
+                        </td>
+                        <td class="align-middle"><img src="/<%= val.product_id.product_image %>" alt=""
+                                style="width: 50px;">
+                            <%= val.product_id.product_name.substring(0, 10) %>...</td>
+                        <td class="align-middle">$<%= val.product_id.product_price %>
+                            <% total = total + parseInt(val.product_id.product_price) %> </td>
                         <!-- <td class="align-middle">$<%= val._id%></td> -->
                         <td class="align-middle">
                             <div class="input-group quantity mx-auto" style="width: 100px;">
@@ -36,7 +43,7 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="align-middle">$<%= val.product_price %></td>
+                        <td class="align-middle">$<%= val.product_id.product_price  %></td>
                         <td class="align-middle"><button class="btn btn-sm btn-primary"><i
                                     class="fa fa-times"></i></button></td>
                     </tr>
@@ -45,44 +52,67 @@
             </table>
         </div>
         <div class="col-lg-4">
-            <form class="mb-5" action="">
-                <div class="input-group">
-                    <form action="" method="post">
-                        <input type="text" class="form-control p-4" placeholder="Coupon Code">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary p-4 ms-1">Apply Coupon</button>
-                    </form>
-                </div>
-        </div>
-        </form>
-        <div class="card border-secondary mb-5">
-            <div class="card-header bg-secondary border-0">
-                <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
-            </div>
-            <div class="card-body">
-                <div class="d-flex justify-content-between mb-3 pt-1">
-                    <h6 class="font-weight-medium">Subtotal</h6>
-                    <h6 class="font-weight-medium">$150</h6>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <h6 class="font-weight-medium">Shipping</h6>
-                    <h6 class="font-weight-medium">$10</h6>
+            <!-- <form class="mb-5" action=""> -->
+            <div class="input-group  mb-3">
+                <!-- <form action="" method="post"> -->
+                <input type="text" class="form-control p-2 " id="couponId" placeholder="Coupon Code">
+                <div class="input-group-append">
+                    <button class="btn btn-primary p-2 ms-1" onclick="couponBtn()">Apply Coupon</button>
+                    <!-- </form> -->
                 </div>
             </div>
-            <div class="card-footer border-secondary bg-transparent">
-                <div class="d-flex justify-content-between mt-2">
-                    <h5 class="font-weight-bold">Total</h5>
-                    <% for(var i=0;i<cart.length;i++){ %>
-                    <h5 class="font-weight-bold"><%  s= cart[i].product_id.product_price  %></h5>
-                    <h5 class="font-weight-bold"><%=  s %></h5>
-                    <% } %>
+            <!-- </form> -->
+            <div class="card border-secondary mb-5">
+                <div class="card-header bg-secondary border-0">
+                    <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
                 </div>
-                <a href="/checkout/:id" class="btn btn-block btn-primary my-3 py-3 "><i class="bi bi-bag"></i>Proceed To Checkout</a>
-                <!-- <button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button> -->
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-3 pt-1">
+                        <h6 class="font-weight-medium">Subtotal</h6>
+                        <h6 class="font-weight-medium">$ <%= total  %></h6>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="font-weight-medium">Shipping</h6>
+                        <% var sub_total=0; %>
+                        <h6 class="font-weight-medium"><%=  sub_total = total*5/100 %></h6>
+                    </div>
+                    <div class="d-flex justify-content-between d-none" id="coupDiv">
+                        <h6 class="font-weight-medium">Coupon </h6>
+                        <h6 class="font-weight-medium" id="coupVal"></h6>
+                    </div>
+                </div>
+                <div class="card-footer border-secondary bg-transparent">
+                    <div class="d-flex justify-content-between mt-2">
+                        <h5 class="font-weight-bold">Total</h5>
+                        <input type="hidden" id="total_val" value="<%= total+sub_total %>">
+                        <h5 class="font-weight-bold" id="sum"> $ <%= total+sub_total %></h5>
+                    </div>
+                    <a href="/checkout/:id" class="btn btn-block btn-primary my-3 py-3 "><i
+                            class="bi bi-bag"></i>Proceed To Checkout</a>
+                    <!-- <button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button> -->
+                </div>
             </div>
         </div>
     </div>
 </div>
-</div>
+<script>
+    function couponBtn() {
+        // alert("Hekko")
+        let coup = document.getElementById('couponId').value;
+        if (coup == 'test') {
+            let dis_am = 1000;
+            let new_field = document.getElementById('coupDiv');
+            new_field.classList.remove('d-none');
+            document.getElementById('coupVal').innerHTML = dis_am;
+            let new_vall = document.getElementById('total_val').value;
+            let all_val = new_vall - dis_am;
+            document.getElementById('sum').innerHTML = '$ ' + all_val;
+            ocument.getElementById('total_val').value = all_val;
+
+        } else {
+            alert("Haat")
+        }
+    }
+</script>
 <!-- Cart End -->
 <%- include('footer.ejs') -%>

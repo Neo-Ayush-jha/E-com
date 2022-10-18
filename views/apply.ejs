@@ -1,21 +1,28 @@
 <%- include('nav.ejs') -%>
-<div class="container" >
+<div class="container">
     <div class="row mb-3">
         <div class="col-lg-4 md-6 sm-10 mx-auto mt-3">
             <div class="card shadow shadow-6" style="background-color: rgba(239, 231, 231, 0.9);">
                 <div class="card-body shadow shadow-5">
                     <div class="col-10 mx-auto ">
-                        <div class=" mb-1 border border-1 p-1 border-dark text-dark  rounded-pill text-center " style="background-color:rgb(242 162 206);">Lorem ipsum dolor sit amet </div>
-                        <div class="mb-1 border border-1 border-dark text-dark rounded-pill text-center p-2" style="background-color:rgb(218 202 242);">Lorem ipsum dolor sit amet
-                            consectetur adipisicing  elit.</div>
-                        <div class="mb-2 border border-dark p-1 border-1text-primary  rounded-pill text-center" style="background-color:rgb(242 162 206);">Lorem ipsum dolor sit amet </div>
+                        <div class=" mb-1 border border-1 p-1 border-dark text-dark  rounded-pill text-center "
+                            style="background-color:rgb(242 162 206);">Lorem ipsum dolor sit amet </div>
+                        <div class="mb-1 border border-1 border-dark text-dark rounded-pill text-center p-2"
+                            style="background-color:rgb(218 202 242);">Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit.</div>
+                        <div class="mb-2 border border-dark p-1 border-1text-primary  rounded-pill text-center"
+                            style="background-color:rgb(242 162 206);">Lorem ipsum dolor sit amet </div>
                         <form action="/signup" method="post" enctype="multipart/form-data">
-                            <div class="mb-3 border border-light  border-3 mx-auto rounded-circle " style="height:110px;width:110px; ">
-                                <input type="file" name="image" class="form-control rounded-circle mx-auto border border-3 py-5 px-1" style="height:100px;width:100px;     background-color: rgb(65 56 63);">
+                            <div class="mb-3 border border-light  border-3 mx-auto rounded-circle "
+                                style="height:110px;width:110px; ">
+                                <input type="file" name="image"
+                                    class="form-control rounded-circle mx-auto border border-3 py-5 px-1"
+                                    style="height:100px;width:100px;     background-color: rgb(65 56 63);">
                                 <!-- <input type="file" , name="image" class="form-control"  placeholder="Pleace enter Class image"> -->
                             </div>
                             <div class="mb-2">
-                                <input type="text" name="user_name" placeholder="User Name" class="form-control border-bottom">
+                                <input type="text" name="user_name" placeholder="User Name"
+                                    class="form-control border-bottom">
                             </div>
                             <div class="mb-2">
                                 <input type="text" name="user_contact" placeholder="User Contact" class="form-control">
@@ -29,7 +36,8 @@
                             <div class="mb-2">
                                 <input type="text" name="user_password" placeholder="User Passord" class="form-control">
                             </div>
-                            <div class="mb-2 rounded-pill text-center mx-auto" style="background-image: linear-gradient(to right, rgb(119, 32, 97), rgb(149, 46, 108), rgb(177, 49, 156), rgb(205, 48, 134), rgb(230, 41, 173)) !important">
+                            <div class="mb-2 rounded-pill text-center mx-auto"
+                                style="background-image: linear-gradient(to right, rgb(119, 32, 97), rgb(149, 46, 108), rgb(177, 49, 156), rgb(205, 48, 134), rgb(230, 41, 173)) !important">
                                 <i class="bi bi-check-circle text-light fs-5"></i>
                                 <!-- <button class="border-0 my-1 fs-5 text-secondary " style="background-image: linear-gradient(to right, rgb(119, 32, 97), rgb(149, 46, 108), rgb(177, 49, 156), rgb(205, 48, 134), rgb(230, 41, 173)) !important">Submit</button> -->
                                 <input type="submit" class="btn text-light " value="Submit" placeholder="Submit">

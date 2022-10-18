@@ -1,37 +1,24 @@
-<!-- Categories Start -->
-<!-- <div class="container-fluid pt-5">
-    <div class="row px-xl-5 pb-3">
-        <div class="col-lg-4 col-md-6 pb-1">
-            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">15 Products</p>
-                <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid" src="img/cat-1.jpg" alt="">
-                </a>
-                <h5 class="font-weight-semi-bold m-0">Men's dresses</h5>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- Categories End -->
 <div class="row">
     <div class="col-lg-12 md-6 sm-6  mx-auto mt-3">
         <div class="row">
             <% product.forEach(val=>{ %>
-                <div class="col-lg-3 md-6 sm-8 mx-auto mt-3 ">
-                    <a href="/singleProduct/<%=val._id %>" class="nav-link">
-                        <div class="card" style="width: 18rem;height: 24rem; background-color:rgba(239, 231, 231, 0.9);">
-                            <img src="/<%= val.product_image %>" class="card-img-top" height="190px" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><%=val.product_name.substring(0, 20) %></h5>
-                                <p class="card-text"><%=val.product_discription.substring(0, 100) %></p>
-                                <div class="mt-3">
-                                    <a href="/singleProduct/<%=val._id %>" class="btn btn-warning "><i class="bi bi-cart-plus-fill"></i>Add to card</a>
-                                    <a href="/checkout/<%=val._id %>" class="btn btn-danger ms-2 "><i class="bi bi-bag"></i>Buy Now</a>
-                                </div>
+            <div class="col-lg-3 md-6 sm-8 mx-auto mt-3 ">
+                <a href="/singleProduct/<%=val._id %>" class="nav-link">
+                    <div class="card" style="width: 18rem;height: 24rem; background-color:rgba(239, 231, 231, 0.9);">
+                        <img src="/<%= val.product_image %>" class="card-img-top " height="190px" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><%=val.product_name.substring(0, 20) %></h5>
+                            <p class="card-text"><%=val.product_discription.substring(0, 100) %></p>
+                            <div class="mt-3">
+                                <a href="/singleProduct/<%=val._id %>" class="btn btn-warning "><i
+                                        class="bi bi-eye-fill "></i>View detal</a>
+                                <a href="/checkout/<%=val._id %>" class="btn btn-danger ms-2 "><i
+                                        class="bi bi-bag"></i>Buy Now</a>
                             </div>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
+            </div>
             <% }) ; %>
         </div>
     </div>

@@ -1,34 +1,34 @@
 const AdminModel = require("../models/admin");
 
-function adminAuthorizedCheck(req,res,next){
-    AdminModel.findById(req.session.admin_id).exec(function(error,admin){
-        if(error){
-            return(error);
+function adminAuthorizedCheck(req, res, next) {
+    AdminModel.findById(req.session.admin_id).exec(function (error, admin) {
+        if (error) {
+            return (error);
         }
-        else{
-            if(admin){
+        else {
+            if (admin) {
                 res.redirect("/admin/home")
             }
-            else{
+            else {
                 return next();
             }
         }
     })
 }
-function adminAuthorized(req,res,next){
-    AdminModel.findById(req.session.admin_id).exec(function(error,admin){
-        if(error){
-            return(error);
+function adminAuthorized(req, res, next) {
+    AdminModel.findById(req.session.admin_id).exec(function (error, admin) {
+        if (error) {
+            return (error);
         }
-        else{
-            if(admin === null){
+        else {
+            if (admin === null) {
                 res.redirect("/admin/login")
             }
-            else{
+            else {
                 return next();
             }
         }
     })
 }
 
-module.exports = {adminAuthorized, adminAuthorizedCheck};
+module.exports = { adminAuthorized, adminAuthorizedCheck };

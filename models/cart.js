@@ -4,7 +4,7 @@ var cartModel = mongoose.Schema({
     // 'order_id':{type:mongoose.Schema.Types.ObjectId,ref:"order"},
     // 'qty':{type:Number,require:true,default:1},
     'user_id':{type:mongoose.Schema.Types.ObjectId,ref:"user"},
-    'product_id':{type:mongoose.Schema.Types.ObjectId,red:"product"},
+    'product_id':{type:mongoose.Schema.Types.ObjectId,ref:"product"},
     'status':{type:Number,require:true,default:1},
 });
 var cart = mongoose.model("cart",cartModel);

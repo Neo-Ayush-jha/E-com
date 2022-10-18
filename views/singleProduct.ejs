@@ -110,23 +110,24 @@
                 </div>
                 <div class=" d-flex align-items-center mb-4 pt-2">
                     <div class=" input-group quantity mr-3" style="width: 100px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-minus" >
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-primary btn-minus">
                                 <i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
+                            </button>
                         </div>
-                        
-                    <a href="/cart/add/<%=product._id %>" class="btn  add-to-cart btn-primary px-3 mx-2"><i class="fa fa-shopping-cart mr-1"></i> Add to cart</a>
-                    <!-- <a href="" class="btn  add-to-cart btn-primary px-3 mx-2"><i class="fa fa-shopping-cart mr-1"></i> Add to cart</a> -->
-                    <a href="/checkout/<%=product._id %>" class="btn btn-primary px-3 mx-2"><i class="fa fa-shopping-cart mr-1"></i> Bye Now</a>
-                   
+                        <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-primary btn-plus">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <a href="/cart/add/<%=product._id %>" class="btn  add-to-cart btn-primary px-3 mx-2"><i
+                            class="fa fa-shopping-cart mr-1"></i> Add to cart</a>
+                    <a href="/checkout/<%=product._id %>" class="btn btn-primary px-3 mx-2"><i
+                            class="fa fa-shopping-cart mr-1"></i> Bye Now</a>
+
                 </div>
                 <div class="d-flex pt-2">
                     <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
@@ -159,7 +160,7 @@
                         <p><%= product.product_discription%></p>
                         <p><%= product.product_cat_id.cat_description %></p>
                     </div>
-                    
+
                     <div class="tab-pane fade" id="tab-pane-3">
                         <div class="row">
                             <div class="col-md-6">
@@ -235,36 +236,36 @@
             <div class="col mx-auto">
                 <div class="owl-carousel related-carousel">
                     <div class="row ">
-                        <% tt.forEach(val=>{ %>
+                        <% tt.forEach((val)=>{ %>
                         <div class="col-3 my-2 p-3 mx-auto">
                             <a href="/singleProduct/<%=val._id %>" class="nav-link">
                                 <div class=" card product-item border-1">
                                     <div
                                         class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                        <img class="img-fluid ms-5 p-2" src="/<%=val.product_image%>"
+                                        <img class="img-fluid  p-2" src="/<%=val.product_image%>"
                                             style="height: 100px; width: 200px;" alt="">
                                     </div>
                                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                         <h6 class="text-truncate mb-3"><%=val.product_name.substring(0, 20) %></h6>
                                         <div class="d-flex justify-content-center">
                                             <h6>$<%=val.product_price %>.00</h6>
-                                            <h6 class="text-muted ml-2"><del>$<%=val.product_discount %>.00</del></h6>
                                         </div>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between bg-light border">
-                                        <a href="" class="btn btn-sm  text-dark p-0"><i
-                                                class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                        <a href="" class="btn btn-sm text-dark p-0"><i
-                                                class="fas add-to-cart fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                                        <a href="/singleProduct/<%=val._id %>" class="btn btn-warning  text-dark p-1"><i
+                                                class="fas fa-eye text-dark mr-1"></i>View Detail</a>
+                                        <a href="/cart/add/<%=product._id %>" class="btn btn-danger  text-light p-1"><i
+                                                class="fas add-to-cart fa-shopping-cart text-light mr-1"></i>Add To
+                                            Cart</a>
                                     </div>
                                 </div>
                             </a>
+                        </div>
+                        <% }) ; %>
                     </div>
-                    <% }) ; %>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <!-- Products End -->
 
@@ -272,12 +273,6 @@
     <!-- Footer Start -->
     <%- include('footer.ejs') -%>
     <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-
-
-
     <!-- Template Javascript -->
     <script src="./js/main.js"></script>
     <script src="./js/app.js"></script>

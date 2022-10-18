@@ -1,33 +1,33 @@
 var userModel = require('../models/user');
-function userAuthorizedCheck(req,res,next){
-     userModel.findById(req.session.user_id).exec(function(error, user){
-        if(error){
-            return(error);
+function userAuthorizedCheck(req, res, next) {
+    userModel.findById(req.session.user_id).exec(function (error, user) {
+        if (error) {
+            return (error);
         }
-        else{
-            if(user){
-                res.redirect("/checkout/:id");
+        else {
+            if (user) {
+                res.redirect("/cart/add");
             }
-            else{
+            else {
                 return next();
             }
         }
     })
 }
-function userAuthorized(req,res,next){
-     userModel.findById(req.session.user_id).exec(function(error, user){
-        if(error){
-            return(error);
+function userAuthorized(req, res, next) {
+    userModel.findById(req.session.user_id).exec(function (error, user) {
+        if (error) {
+            return (error);
         }
-        else{
-            if(user === null){
-                res.redirect("/user/login")
+        else {
+            if (user === null) {
+                res.redirect("/user/login");
             }
-            else{
+            else {
                 return next();
             }
         }
     })
 }
 
-module.exports = {userAuthorized, userAuthorizedCheck};
+module.exports = { userAuthorized, userAuthorizedCheck };
